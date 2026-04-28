@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borang Request Sistem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], },
+                    colors: {
+                        brand: { 50: '#f0fdf4', 100: '#dcfce7', 500: '#22c55e', 600: '#16a34a', 900: '#14532d', }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { background-color: #FAFAFA; color: #1F2937; }
+        .input-field:focus { outline: none; border-color: #111827; box-shadow: 0 0 0 1px #111827; }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-100 selection:text-brand-900">
+
+    <main class="max-w-3xl mx-auto px-6 py-16 md:py-24">
+
+        <nav class="mb-12">
+            <a href="/" class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Kembali ke Profil
+            </a>
+        </nav>
+
+        <header class="mb-10">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3 tracking-tight">Request Sistem Custom</h1>
+            <p class="text-lg text-gray-600 leading-relaxed">
+                Ada idea atau perlukan sistem khusus untuk bisnes anda? Isikan butiran di bawah dan saya akan hubungi anda untuk perbincangan lanjut.
+            </p>
+        </header>
+
+        <section class="bg-white p-6 md:p-8 rounded-2xl border border-gray-200 shadow-sm">
+            <form action="#" method="POST" class="space-y-6">
+                <div>
+                    <label for="nama" class="block text-sm font-medium text-gray-700 mb-1">Nama Penuh</label>
+                    <input type="text" id="nama" name="nama" required placeholder="Contoh: Ahmad Ali" 
+                        class="input-field w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 text-gray-900 transition-colors placeholder-gray-400">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Alamat E-mel</label>
+                        <input type="email" id="email" name="email" required placeholder="hello@syarikat.com" 
+                            class="input-field w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 text-gray-900 transition-colors placeholder-gray-400">
+                    </div>
+                    <div>
+                        <label for="telefon" class="block text-sm font-medium text-gray-700 mb-1">No. Telefon / WhatsApp</label>
+                        <input type="tel" id="telefon" name="telefon" required placeholder="012-3456789" 
+                            class="input-field w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 text-gray-900 transition-colors placeholder-gray-400">
+                    </div>
+                </div>
+                <div>
+                    <label for="request" class="block text-sm font-medium text-gray-700 mb-1">Perincian Request</label>
+                    <p class="text-xs text-gray-500 mb-2">Terangkan sedikit tentang sistem yang anda mahukan, fungsi utama, dan bajet anggaran (jika ada).</p>
+                    <textarea id="request" name="request" rows="5" required placeholder="Saya perlukan sistem pengurusan inventori yang boleh..." 
+                        class="input-field w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 text-gray-900 transition-colors placeholder-gray-400 resize-y"></textarea>
+                </div>
+                <div class="pt-2">
+                    <button type="submit" class="w-full md:w-auto px-6 py-3 bg-gray-900 hover:bg-gray-800 text-white text-base font-medium rounded-lg transition-colors shadow-sm">
+                        Hantar Request
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <footer class="mt-24 pt-10 border-t border-gray-200 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <p class="text-sm text-gray-500">© 2026 RuzPrompt. Hak Cipta Terpelihara.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="/" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Profil</a>
+                <a href="/blog" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Blog</a>
+                <a href="/request" class="text-sm text-gray-900 font-medium">Request Sistem</a>
+                <span class="text-gray-300">|</span>
+                <a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Twitter</a>
+                <a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Instagram</a>
+                <a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Email</a>
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+</html>
