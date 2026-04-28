@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - RuzPrompt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], },
+                    colors: {
+                        brand: { 50: '#f0fdf4', 100: '#dcfce7', 500: '#22c55e', 600: '#16a34a', 900: '#14532d', }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { background-color: #FAFAFA; color: #1F2937; }
+        .blog-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .blog-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01); }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-100 selection:text-brand-900">
+
+    <main class="max-w-5xl mx-auto px-6 py-16 md:py-24">
+
+        <nav class="mb-12">
+            <a href="/" class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Kembali ke Profil
+            </a>
+        </nav>
+
+        <header class="mb-12 md:mb-16 text-center md:text-left">
+            <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">Penulisan & Nota</h1>
+            <p class="text-lg text-gray-600 leading-relaxed max-w-2xl">
+                Perkongsian pengalaman, tutorial teknikal, dan tip membina produk digital yang saya pelajari sepanjang perjalanan.
+            </p>
+        </header>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <article class="blog-card bg-white rounded-2xl border border-gray-100 overflow-hidden flex flex-col h-full">
+                <a href="/blog/dashboard-guna-ai" class="block aspect-[16/10] bg-gray-100 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sistem Produktiviti" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                </a>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-xs font-medium text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">Produktiviti</span>
+                        <span class="text-xs text-gray-400">12 Mac 2026</span>
+                    </div>
+                    <a href="/blog/dashboard-guna-ai" class="block group mb-3">
+                        <h2 class="text-xl font-bold text-gray-900 group-hover:text-brand-600 transition-colors line-clamp-2">Cara Bina Dashboard Guna Ai</h2>
+                    </a>
+                    <p class="text-gray-500 text-sm mb-5 line-clamp-3 flex-grow">Ramai yang serabut dengan lambakan maklumat. Ini cara saya susun otak kedua saya untuk ingat semua perkara penting.</p>
+                    <a href="/blog/dashboard-guna-ai" class="inline-flex items-center text-sm font-medium text-gray-900 hover:text-brand-600 transition-colors mt-auto">
+                        Baca selanjutnya <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+            </article>
+
+            <article class="blog-card bg-white rounded-2xl border border-gray-100 overflow-hidden flex flex-col h-full">
+                <a href="/blog/kesilapan-freelancer" class="block aspect-[16/10] bg-gray-100 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kesilapan Freelancer" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                </a>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-xs font-medium text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">Kerjaya</span>
+                        <span class="text-xs text-gray-400">05 Mac 2026</span>
+                    </div>
+                    <a href="/blog/kesilapan-freelancer" class="block group mb-3">
+                        <h2 class="text-xl font-bold text-gray-900 group-hover:text-brand-600 transition-colors line-clamp-2">5 Kesilapan Freelancer Baharu (Dan Cara Mengelaknya)</h2>
+                    </a>
+                    <p class="text-gray-500 text-sm mb-5 line-clamp-3 flex-grow">Jangan ulangi kesilapan yang saya buat pada tahun pertama saya berniaga sendiri. Antaranya ialah meletakkan harga terlalu rendah.</p>
+                    <a href="/blog/kesilapan-freelancer" class="inline-flex items-center text-sm font-medium text-gray-900 hover:text-brand-600 transition-colors mt-auto">
+                        Baca selanjutnya <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+            </article>
+
+            <article class="blog-card bg-white rounded-2xl border border-gray-100 overflow-hidden flex flex-col h-full">
+                <a href="/blog/asas-ui-ux" class="block aspect-[16/10] bg-gray-100 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Reka Bentuk UI" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                </a>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-xs font-medium text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">Design</span>
+                        <span class="text-xs text-gray-400">28 Feb 2026</span>
+                    </div>
+                    <a href="/blog/asas-ui-ux" class="block group mb-3">
+                        <h2 class="text-xl font-bold text-gray-900 group-hover:text-brand-600 transition-colors line-clamp-2">Asas Reka Bentuk UI/UX Untuk Pembangun Web</h2>
+                    </a>
+                    <p class="text-gray-500 text-sm mb-5 line-clamp-3 flex-grow">Tak perlu jadi pereka grafik pro untuk buat website yang cantik. Fahami asas whitespace, tipografi, dan hierarki visual ini.</p>
+                    <a href="/blog/asas-ui-ux" class="inline-flex items-center text-sm font-medium text-gray-900 hover:text-brand-600 transition-colors mt-auto">
+                        Baca selanjutnya <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+            </article>
+
+            <article class="blog-card bg-white rounded-2xl border border-gray-100 overflow-hidden flex flex-col h-full">
+                <a href="/blog/detox-digital" class="block aspect-[16/10] bg-gray-100 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Detox Digital" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                </a>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-xs font-medium text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">Gaya Hidup</span>
+                        <span class="text-xs text-gray-400">20 Feb 2026</span>
+                    </div>
+                    <a href="/blog/detox-digital" class="block group mb-3">
+                        <h2 class="text-xl font-bold text-gray-900 group-hover:text-brand-600 transition-colors line-clamp-2">Kenapa Saya Berhenti Menggunakan Media Sosial Selama 30 Hari</h2>
+                    </a>
+                    <p class="text-gray-500 text-sm mb-5 line-clamp-3 flex-grow">Eksperimen 'digital detox' saya mengubah cara saya bekerja. Produktiviti meningkat 2x ganda dan tidur saya lebih nyenyak.</p>
+                    <a href="/blog/detox-digital" class="inline-flex items-center text-sm font-medium text-gray-900 hover:text-brand-600 transition-colors mt-auto">
+                        Baca selanjutnya <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+            </article>
+
+            <article class="blog-card bg-white rounded-2xl border border-gray-100 overflow-hidden flex flex-col h-full">
+                <a href="/blog/tutorial-tailwind" class="block aspect-[16/10] bg-gray-100 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pengekodan" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                </a>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-xs font-medium text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">Tutorial</span>
+                        <span class="text-xs text-gray-400">14 Feb 2026</span>
+                    </div>
+                    <a href="/blog/tutorial-tailwind" class="block group mb-3">
+                        <h2 class="text-xl font-bold text-gray-900 group-hover:text-brand-600 transition-colors line-clamp-2">Panduan Pantas Tailwind CSS Untuk Pemula</h2>
+                    </a>
+                    <p class="text-gray-500 text-sm mb-5 line-clamp-3 flex-grow">Macam mana Tailwind CSS mempercepatkan proses saya bina website dari berhari-hari kepada beberapa jam sahaja.</p>
+                    <a href="/blog/tutorial-tailwind" class="inline-flex items-center text-sm font-medium text-gray-900 hover:text-brand-600 transition-colors mt-auto">
+                        Baca selanjutnya <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+            </article>
+
+            <article class="blog-card bg-white rounded-2xl border border-gray-100 overflow-hidden flex flex-col h-full">
+                <a href="/blog/setup-wfh" class="block aspect-[16/10] bg-gray-100 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Perkakasan Komputer" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                </a>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-xs font-medium text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">Alatan</span>
+                        <span class="text-xs text-gray-400">01 Feb 2026</span>
+                    </div>
+                    <a href="/blog/setup-wfh" class="block group mb-3">
+                        <h2 class="text-xl font-bold text-gray-900 group-hover:text-brand-600 transition-colors line-clamp-2">Senarai Alat Wajib Ada Untuk Setup Bekerja Dari Rumah</h2>
+                    </a>
+                    <p class="text-gray-500 text-sm mb-5 line-clamp-3 flex-grow">Kerusi yang selesa, monitor yang betul, dan pencahayaan yang sesuai. Ini senarai penuh setup pejabat rumah saya.</p>
+                    <a href="/blog/setup-wfh" class="inline-flex items-center text-sm font-medium text-gray-900 hover:text-brand-600 transition-colors mt-auto">
+                        Baca selanjutnya <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+            </article>
+
+            <article class="blog-card bg-white rounded-2xl border border-gray-100 overflow-hidden flex flex-col h-full">
+                <a href="/blog/produk-digital" class="block aspect-[16/10] bg-gray-100 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Produk Digital" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                </a>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-xs font-medium text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">Bisnes</span>
+                        <span class="text-xs text-gray-400">25 Jan 2026</span>
+                    </div>
+                    <a href="/blog/produk-digital" class="block group mb-3">
+                        <h2 class="text-xl font-bold text-gray-900 group-hover:text-brand-600 transition-colors line-clamp-2">Bagaimana Menjana Pendapatan Sampingan Dengan Produk Digital</h2>
+                    </a>
+                    <p class="text-gray-500 text-sm mb-5 line-clamp-3 flex-grow">Bina sekali, jual berkali-kali. Panduan lengkap dari mencari idea hingga pelancaran produk pertama anda.</p>
+                    <a href="/blog/produk-digital" class="inline-flex items-center text-sm font-medium text-gray-900 hover:text-brand-600 transition-colors mt-auto">
+                        Baca selanjutnya <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+            </article>
+
+            <article class="blog-card bg-white rounded-2xl border border-gray-100 overflow-hidden flex flex-col h-full">
+                <a href="/blog/tips-copywriting" class="block aspect-[16/10] bg-gray-100 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1455390582262-044cdead27d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Menulis" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                </a>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-xs font-medium text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">Pemasaran</span>
+                        <span class="text-xs text-gray-400">18 Jan 2026</span>
+                    </div>
+                    <a href="/blog/tips-copywriting" class="block group mb-3">
+                        <h2 class="text-xl font-bold text-gray-900 group-hover:text-brand-600 transition-colors line-clamp-2">Tip Menulis Ayat Jualan (Copywriting) Yang Jujur dan Berkesan</h2>
+                    </a>
+                    <p class="text-gray-500 text-sm mb-5 line-clamp-3 flex-grow">Tak perlu ayat hiperbola yang melebih-lebih. Pelanggan hari ini lebih menghargai ketelusan dan nilai sebenar produk.</p>
+                    <a href="/blog/tips-copywriting" class="inline-flex items-center text-sm font-medium text-gray-900 hover:text-brand-600 transition-colors mt-auto">
+                        Baca selanjutnya <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+            </article>
+
+            <article class="blog-card bg-white rounded-2xl border border-gray-100 overflow-hidden flex flex-col h-full">
+                <a href="/blog/ai-kandungan" class="block aspect-[16/10] bg-gray-100 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Artificial Intelligence" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                </a>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-xs font-medium text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">Teknologi</span>
+                        <span class="text-xs text-gray-400">10 Jan 2026</span>
+                    </div>
+                    <a href="/blog/ai-kandungan" class="block group mb-3">
+                        <h2 class="text-xl font-bold text-gray-900 group-hover:text-brand-600 transition-colors line-clamp-2">Mengimbangi Penggunaan AI Dalam Penghasilan Kandungan</h2>
+                    </a>
+                    <p class="text-gray-500 text-sm mb-5 line-clamp-3 flex-grow">AI adalah pembantu yang bagus, tetapi jangan biarkan ia membunuh suara asli (authentic voice) jenama anda.</p>
+                    <a href="/blog/ai-kandungan" class="inline-flex items-center text-sm font-medium text-gray-900 hover:text-brand-600 transition-colors mt-auto">
+                        Baca selanjutnya <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+            </article>
+
+        </section>
+
+        <footer class="mt-24 pt-10 border-t border-gray-200 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <p class="text-sm text-gray-500">© 2026 RuzPrompt. Hak Cipta Terpelihara.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="/" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Profil</a>
+                <a href="/blog" class="text-sm text-gray-900 font-medium">Blog</a>
+                <a href="/request" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Request Sistem</a>
+                <span class="text-gray-300">|</span>
+                <a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Twitter</a>
+                <a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Instagram</a>
+                <a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Email</a>
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+</html>
