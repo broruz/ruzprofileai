@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cara Bina Dashboard Guna AI - RuzPrompt</title>
+    <!-- Menggunakan font Inter untuk gaya yang profesional dan moden -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS untuk styling pantas dan kemas -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            900: '#14532d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { background-color: #FAFAFA; color: #1F2937; }
+        
+        /* Gaya khusus untuk kandungan artikel supaya sedap dibaca */
+        .article-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: #374151;
+            font-size: 1.125rem; /* Teks sedikit besar untuk bacaan panjang */
+        }
+        .article-content h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #111827;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+        }
+        .article-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1F2937;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            color: #374151;
+            font-size: 1.125rem;
+            line-height: 1.8;
+        }
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        .article-content strong {
+            color: #111827;
+            font-weight: 600;
+        }
+        .article-content blockquote {
+            border-left: 4px solid #22c55e;
+            padding-left: 1.25rem;
+            font-style: italic;
+            color: #4B5563;
+            background-color: #f0fdf4;
+            padding: 1.5rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            margin: 2rem 0;
+        }
+
+        /* Bayang-bayang lembut untuk kad artikel berkaitan */
+        .related-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .related-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-100 selection:text-brand-900">
+
+    <!-- Kontena Utama (Fokus pada pembacaan dengan max-w-3xl) -->
+    <main class="max-w-3xl mx-auto px-6 py-16 md:py-24">
+
+        <!-- Navigasi Kembali (Breadcrumbs) -->
+        <nav class="mb-12 flex flex-wrap items-center gap-2">
+            <a href="/" class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                Utama
+            </a>
+            <span class="text-gray-300">/</span>
+            <a href="/blog" class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-2-2h-2"></path></svg>
+                Blog
+            </a>
+            <span class="text-gray-300">/</span>
+            <span class="text-sm font-medium text-gray-900 truncate">Cara Bina Dashboard...</span>
+        </nav>
+
+        <!-- Pengepala Artikel -->
+        <header class="mb-10">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="text-sm font-medium text-brand-600 bg-brand-50 px-3 py-1 rounded-full">Produktiviti</span>
+                <span class="text-sm text-gray-400">12 Mac 2026</span>
+                <span class="text-sm text-gray-400">• Masa bacaan: 8 minit</span>
+            </div>
+            <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight leading-tight">
+                Cara Bina Dashboard Guna AI: Panduan Lengkap Untuk Pemula Hingga Pro
+            </h1>
+            
+            <!-- Profil Penulis Ringkas -->
+            <div class="flex items-center gap-3 mt-8 pb-8 border-b border-gray-200">
+                <a href="/" class="w-12 h-12 rounded-full bg-gray-200 overflow-hidden hover:opacity-80 transition-opacity">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="RuzPrompt" class="w-full h-full object-cover">
+                </a>
+                <div>
+                    <a href="/" class="text-sm font-bold text-gray-900 hover:text-brand-600 transition-colors">RuzPrompt</a>
+                    <p class="text-sm text-gray-500">Pembangun Web & Pemikir Digital</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Gambar Hero Artikel -->
+        <div class="w-full aspect-[16/9] mb-12 rounded-2xl overflow-hidden bg-gray-100">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Dashboard Analitik Moden" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Kandungan Artikel -->
+        <article class="article-content">
+            <p>
+                Dalam era lambakan data hari ini, keupayaan untuk membaca, menganalisis, dan memvisualisasikan maklumat adalah satu kemahiran yang sangat mahal nilainya. Dahulu, jika anda mahu membina sebuah paparan pemuka (dashboard) yang interaktif, anda memerlukan kepakaran dalam pengaturcaraan (seperti HTML, CSS, JavaScript, React, atau Python) atau kemahiran menggunakan perisian kompleks seperti Tableau dan Microsoft PowerBI. Proses ini bukan sahaja memakan masa berbulan-bulan, tetapi juga melibatkan kos yang tinggi jika anda perlu mengupah seorang penganalisis data atau pembangun web.
+            </p>
+
+            <p>
+                Namun, sejak kemunculan Kecerdasan Buatan (AI) generatif yang semakin matang, landskap pembangunan perisian telah berubah secara drastik. Kini, sesiapa sahaja, tidak kira latar belakang teknikal mereka, boleh mencipta visualisasi data yang cantik dan berfungsi penuh. Kunci utamanya adalah mengetahui cara berbincang dan memberi arahan kepada AI. Dalam artikel panduan komprehensif ini, saya akan berkongsi dengan anda langkah demi langkah secara terperinci tentang <strong>cara bina dashboard guna ai</strong>.
+            </p>
+
+            <h2>Kenapa Anda Perlu Tahu Cara Bina Dashboard Guna AI?</h2>
+            
+            <p>
+                Sebelum kita menyelam lebih dalam ke dalam proses teknikal, adalah penting untuk kita faham mengapa kemahiran membina <em>dashboard guna ai</em> ini merupakan satu 'game-changer' (pengubah keadaan) bagi usahawan, pekerja bebas (freelancer), mahupun pengurus projek di syarikat korporat.
+            </p>
+
+            <ul class="list-disc">
+                <li><strong>Penjimatan Masa yang Melampau:</strong> Proses membina kod carta, menetapkan reka letak grid, dan menyambungkan data secara manual mungkin mengambil masa beberapa hari. Dengan AI, kod asas (boilerplate) dan visualisasi dapat dijana dalam masa beberapa saat.</li>
+                <li><strong>Pendemokrasian Data:</strong> Anda tidak lagi perlu bergantung harap kepada jabatan IT atau 'Data Scientist' untuk mendapatkan laporan visual mingguan jualan anda. Anda sendiri boleh lakukannya.</li>
+                <li><strong>Prototaip Pantas (Rapid Prototyping):</strong> Jika anda seorang pembangun web atau agensi, anda boleh menunjukkan rupa bentuk awal dashboard kepada pelanggan anda pada mesyuarat pertama lagi. Ini akan meningkatkan keyakinan pelanggan terhadap anda.</li>
+                <li><strong>Penyelesaian Ralat (Debugging) Pintar:</strong> Jika dashboard anda tidak berfungsi atau carta tidak memaparkan data yang betul, AI boleh bertindak sebagai tutor peribadi anda dengan mencari punca ralat dan memperbaikinya secara automatik.</li>
+            </ul>
+
+            <blockquote>
+                "Masa depan analitik bukan lagi tentang siapa yang boleh menulis kod paling kompleks, tetapi siapa yang boleh bertanyakan soalan yang paling tepat kepada data mereka menerusi AI."
+            </blockquote>
+
+            <h2>Langkah 1: Kenal Pasti Matlamat dan Siapkan Data Anda</h2>
+
+            <p>
+                Kesilapan terbesar yang sering dilakukan oleh pemula apabila mahu membina dashboard guna AI adalah mereka terus melompat ke arah menulis <em>prompt</em> tanpa mengetahui apa sebenarnya yang mahu dicapai. AI, walau sepintar mana pun, memerlukan arahan yang mempunyai konteks yang jelas. Hukum asas sains data sentiasa terpakai: <em>"Garbage in, garbage out"</em> (Data sampah yang dimasukkan, hasil sampah yang dikeluarkan).
+            </p>
+
+            <p>
+                Tanya diri anda soalan-soalan ini terlebih dahulu:
+            </p>
+            <ol class="list-decimal">
+                <li><strong>Siapa yang akan melihat dashboard ini?</strong> (Adakah untuk kegunaan peribadi, pelanggan, atau pihak pengurusan atasan?)</li>
+                <li><strong>Apakah soalan utama yang perlu dijawab oleh dashboard ini?</strong> (Contoh: "Berapa banyak jualan produk digital saya minggu ini?" atau "Dari mana datangnya majoriti trafik ke laman web saya?")</li>
+                <li><strong>Dalam format apakah data mentah anda disimpan?</strong> (Adakah ia fail CSV, Hamparan Excel, JSON, atau dari pangkalan data MySQL?)</li>
+            </p>
+
+            <p>
+                <strong>Tindakan Praktikal:</strong> Ekstrak data anda ke dalam fail berformat CSV (Comma Separated Values) terlebih dahulu. Format CSV adalah format 'bahasa universal' yang paling mudah dibaca dan difahami oleh hampir semua model AI (seperti ChatGPT, Claude, dan Gemini). Pastikan baris pertama (header) dalam CSV anda mempunyai nama yang jelas seperti `Tarikh`, `Nama_Produk`, `Jumlah_Jualan`, dan `Negara`. Buang lajur yang tidak berkaitan supaya AI tidak keliru.
+            </p>
+
+            <!-- Gambar Dalam Artikel 1 -->
+            <div class="my-10 rounded-xl overflow-hidden bg-gray-50 border border-gray-100">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Paparan skrin analisis data" class="w-full h-auto">
+                <p class="text-sm text-center text-gray-500 py-3 bg-white border-t border-gray-100">Contoh paparan pemuka yang menumpukan pada metrik kewangan utama.</p>
+            </div>
+
+            <h2>Langkah 2: Memilih 'Senjata' AI Yang Betul</h2>
+
+            <p>
+                Terdapat dua laluan utama (pendekatan) apabila anda membina dashboard guna AI. Anda perlu memilih laluan ini berdasarkan tahap kemahiran teknikal yang anda miliki.
+            </p>
+
+            <h3>Pendekatan A: Kod Tersuai (Untuk Pembangun Web & Peminat Teknikal)</h3>
+            <p>
+                Jika anda mahu memiliki kod sumber (source code) sepenuhnya supaya anda boleh memuat naiknya ke pelayan (server) anda sendiri, gunakan alatan generatif kod:
+            </p>
+            <ul>
+                <li><strong>Claude 3.5 Sonnet (dengan fungsi Artifacts):</strong> Ini adalah model yang paling saya cadangkan setakat ini. Claude sangat cemerlang dalam menghasilkan kod komponen React dan UI yang sangat cantik menggunakan pustaka (library) seperti Recharts atau Chart.js. Ia juga boleh memaparkan pratonton (preview) dashboard terus di dalam ruang sembang.</li>
+                <li><strong>v0 by Vercel:</strong> Platform ini sangat menakjubkan. Anda hanya perlu menaip apa yang anda mahu (contoh: "Bina satu dashboard admin untuk kedai e-dagang yang ada graf jualan bulanan"), dan ia akan menjana antaramuka yang lengkap dengan Tailwind CSS yang anda boleh salin kodnya dengan satu butang.</li>
+                <li><strong>ChatGPT (Model o1-preview atau GPT-4o):</strong> Sangat bagus untuk menyelesaikan logik yang kompleks dan menstruktur data JSON, tetapi memerlukan anda menyalin kod tersebut ke dalam editor kod (seperti VS Code) anda sendiri untuk melihat hasilnya.</li>
+            </ul>
+
+            <h3>Pendekatan B: Platform Analitik Sedia Ada AI (Tanpa Kod)</h3>
+            <p>
+                Jika anda tidak mahu melihat walau sebaris kod sekalipun dan hanya mahu keputusan terus, gunakan perisian ini:
+            </p>
+            <ul>
+                <li><strong>ChatGPT dengan 'Advanced Data Analysis':</strong> Anda boleh muat naik fail Excel atau CSV anda terus ke dalam chat. Minta ChatGPT baca data tersebut, analisis, dan hasilkan graf imej atau carta secara terus.</li>
+                <li><strong>Microsoft PowerBI dengan Copilot:</strong> Bagi pengguna ekosistem korporat. Anda hanya perintahkan Copilot dengan bahasa biasa, dan ia akan menarik (drag & drop) metrik ke atas kanvas.</li>
+                <li><strong>Tableau Pulse:</strong> Menggunakan AI generatif untuk merumuskan pandangan (insights) dari data anda secara automatik.</li>
+            </ul>
+
+            <h2>Langkah 3: Seni 'Prompting' (Memberi Arahan) Kepada AI</h2>
+
+            <p>
+                Rahsia kejayaan dalam proses ini terletak pada kualiti arahan (prompt) anda. Jangan berikan arahan yang ringkas seperti <em>"Buatkan saya dashboard jualan"</em>. Hasilnya pasti akan kelihatan generik dan membosankan. 
+            </p>
+            <p>
+                Anda perlu menggunakan struktur "Peranan + Konteks + Spesifikasi UI + Tindakan". Berikut adalah formula dan contoh <em>prompt</em> berprestasi tinggi yang sering saya gunakan:
+            </p>
+
+            <div class="bg-gray-900 text-gray-50 p-6 rounded-xl my-8 font-mono text-sm leading-relaxed overflow-x-auto shadow-lg">
+                <p class="text-brand-400 mb-2">// Contoh Prompt Untuk Claude (Artifacts) atau v0</p>
+                <p class="mb-4">"Bertindak sebagai Pembangun Web Frontend Senior dan Pakar UX/UI.</p>
+                <p class="mb-4">Saya mahu membina satu dashboard analitik untuk produk digital saya menggunakan HTML, Tailwind CSS (melalui CDN), dan pustaka Chart.js (melalui CDN).</p>
+                <p class="mb-4">Sila cipta satu fail HTML tunggal. Pastikan reka bentuknya kelihatan moden, bersih, menggunakan gaya 'glassmorphism' yang halus, dan mematuhi skema warna kelabu gelap dan hijau zamrud.</p>
+                <p class="mb-4">Komponen yang WAJIB ada di dalam skrin ini:
+                <br>1. Empat kad ringkasan (Summary Cards) di bahagian paling atas: Jumlah Pendapatan (RM), Jumlah Muat Turun, Kadar Penukaran (%), dan Jumlah Pengunjung.
+                <br>2. Satu carta barisan (Line chart) utama di tengah yang menunjukkan trend pendapatan sepanjang 7 hari lepas. Guna data rawak / mock data yang realistik.
+                <br>3. Satu carta pai (Doughnut chart) yang memaparkan peratusan sumber trafik (Twitter, SEO, E-mel).
+                <br>4. Jadual transaksi terkini di bahagian bawah dengan status (Berjaya, Tertunda, Gagal).</p>
+                <p>Pastikan dashboard ini responsif dan nampak cantik pada paparan peranti mudah alih. Hanya berikan kod yang lengkap dan sedia untuk dijalankan."</p>
+            </div>
+
+            <p>
+                Apabila anda memasukkan <em>prompt</em> yang padat dan lengkap spesifikasinya sebegini, AI akan memproses setiap arahan dan mengeluarkan hasil yang 90% menghampiri apa yang anda bayangkan dalam kepala anda.
+            </p>
+
+            <!-- Gambar Dalam Artikel 2 -->
+            <div class="my-10 rounded-xl overflow-hidden bg-gray-50 border border-gray-100">
+                <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ruang kerja pengekodan dengan visualisasi" class="w-full h-auto">
+                <p class="text-sm text-center text-gray-500 py-3 bg-white border-t border-gray-100">Menyalin dan melekatkan kod yang dijana oleh AI ke dalam persekitaran tempatan (local environment) untuk disunting.</p>
+            </div>
+
+            <h2>Langkah 4: Proses Refinement (Penambahbaikan Berterusan)</h2>
+
+            <p>
+                Perlu diingat, AI jarang sekali menghasilkan kod yang 100% sempurna atau tepat dengan citarasa kita pada percubaan pertama. Di sinilah wujudnya fasa interaksi atau komunikasi dua hala. Anda tidak perlu memadam segala-galanya dan bermula semula jika terdapat sedikit kecacatan pada hasil yang dijana.
+            </p>
+
+            <p>
+                Anda boleh memberikan maklum balas kepada AI untuk membuat penyesuaian:
+            </p>
+            <ul class="list-disc">
+                <li><em>"Carta garisan ini nampak terlalu tajam, tolong tukarkan sifat 'tension' pada Chart.js supaya garisan nampak melengkung (curved smooth)."</em></li>
+                <li><em>"Tukar warna latar belakang kad ringkasan kepada putih sepenuhnya, dan tambah bayang-bayang drop-shadow yang lembut."</em></li>
+                <li><em>"Dashboard ini tidak responsif apabila saya kecilkan tetingkap. Tolong ubah struktur grid supaya carta bertukar menjadi satu kolum menegak di skrin telefon pintar."</em></li>
+            </ul>
+            <p>
+                Jangan takut untuk meminta AI menerangkan kepada anda tentang kod yang ia telah tulis. Jika anda bertanya "Kenapa awak gunakan flexbox dan bukan grid di bahagian pengepala?", ia akan menerangkan logiknya, dan ini secara tidak langsung mempercepatkan proses pembelajaran anda dalam bidang pengaturcaraan.
+            </p>
+
+            <h2>Menghubungkan Data Sebenar (Real-Time API)</h2>
+
+            <p>
+                Setakat Langkah 4, anda sudah mempunyai sebuah papan pemuka yang cantik, namun ia masih memaparkan data palsu (mock data). Untuk menjadikannya sebuah sistem yang sebenar dan berkuasa, anda perlu memasukkan data dinamik dari sistem pihak ketiga.
+            </p>
+            <p>
+                Walaupun anda tidak mempunyai pengalaman menulis "fetch API request", AI boleh melakukannya untuk anda. Sebagai contoh, jika anda menjual produk digital di platform Stripe, anda boleh meminta AI seperti berikut:
+            </p>
+            <p class="italic text-gray-600 ml-4 border-l-2 border-gray-300 pl-4 my-4">
+                "Tolong tuliskan satu fungsi JavaScript asynchronous menggunakan fetch() yang akan menarik data senarai pelanggan terbaru dari API Stripe, dan kemudian kemas kini jadual HTML yang telah anda bina tadi secara dinamik. Saya sudah ada API Key. Tunjukkan saya di mana saya patut letak API key tersebut."
+            </p>
+            <p>
+                Dalam beberapa saat, integrasi sistem kompleks yang sebelum ini memerlukan jurutera perisian tahap pertengahan (mid-level software engineer) kini telah disiapkan dan disajikan di hadapan mata anda.
+            </p>
+
+            <h2>Cabaran Keselamatan dan Privasi Data</h2>
+
+            <p>
+                Satu pesanan penting daripada saya sebelum anda mula bereksperimen: <strong>Jangan sesekali memasukkan data yang sensitif secara melulu ke dalam model AI awam</strong>.
+            </p>
+            <p>
+                Jika anda menggunakan ChatGPT atau Claude untuk memproses fail CSV secara langsung, pastikan anda telah membersihkan (anonymize) data tersebut terlebih dahulu. Buang nama penuh pelanggan, nombor kad kredit, alamat rumah, dan apa-apa Maklumat Pengenalan Peribadi (PII - Personally Identifiable Information). Jika data rahsia syarikat tertiris kerana anda memuat naiknya kepada pelayan pihak ketiga milik syarikat AI, ia adalah satu bentuk pelanggaran keselamatan yang sangat serius.
+            </p>
+            <p>
+                Bagi data sensitif, lebih selamat jika anda sekadar menggunakan AI untuk menghasilkan <em>kod struktur dashboard</em> tersebut, manakala proses membaca dan menyalurkan data sensitif ke dalam kod tersebut dilakukan secara tertutup pada komputer (local) atau pelayan yang selamat milik anda sendiri.
+            </p>
+
+            <h2>Kesimpulan: Bermula Hari Ini Juga</h2>
+
+            <p>
+                Mengetahui cara bina dashboard guna AI bukan lagi sekadar satu eksperimen teknologi yang menyeronokkan; ia sudah menjadi satu kemahiran mandatori yang meletakkan anda setapak lebih maju ke hadapan. Sama ada anda mahu memantau metrik bisnes sampingan anda, menunjukkan laporan prestasi cemerlang kepada bos di pejabat, atau sekadar menjejaki tabiat perbelanjaan kewangan peribadi anda.
+            </p>
+            <p>
+                Alatannya sudah ada, ia percuma, dan ia amat pantas. Apa yang memisahkan antara anda dengan sebuah sistem visualisasi data yang profesional hanyalah sepotong arahan (prompt) yang belum ditaip. Mulakan dengan projek yang kecil dahulu. Buka ChatGPT, Claude, atau platform pilihan anda sekarang, dan minta ia binakan satu visualisasi ringkas tentang berapa jam anda habiskan masa di hadapan skrin hari ini. Dari situ, pelajari rentaknya, dan teruskan bereksperimen!
+            </p>
+        </article>
+
+        <!-- BAHAGIAN ARTIKEL BERKAITAN (Baharu) -->
+        <section class="mt-16 pt-12 border-t border-gray-200">
+            <h3 class="text-2xl font-bold text-gray-900 mb-8">Baca Artikel Lain</h3>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                <!-- Kad Artikel Berkaitan 1 -->
+                <article class="related-card bg-white rounded-2xl border border-gray-100 overflow-hidden flex flex-col h-full">
+                    <a href="/blog/kesilapan-freelancer" class="block aspect-[16/10] bg-gray-100 overflow-hidden">
+                        <img src="https://static.canva.com/static/images/canva_templates_array.jpg" alt="Kesilapan Freelancer" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                    </a>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-xs font-medium text-brand-600">Kerjaya</span>
+                            <span class="text-xs text-gray-300">•</span>
+                            <span class="text-xs text-gray-400">05 Mac 2026</span>
+                        </div>
+                        <a href="/blog/kesilapan-freelancer" class="block group mb-2">
+                            <h4 class="text-lg font-bold text-gray-900 group-hover:text-brand-600 transition-colors line-clamp-2">5 Kesilapan Freelancer Baharu (Dan Cara Mengelaknya)</h4>
+                        </a>
+                        <a href="/blog/kesilapan-freelancer" class="inline-flex items-center text-sm font-medium text-gray-900 hover:text-brand-600 transition-colors mt-auto pt-4">
+                            Baca artikel <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Kad Artikel Berkaitan 2 -->
+                <article class="related-card bg-white rounded-2xl border border-gray-100 overflow-hidden flex flex-col h-full">
+                    <a href="/blog/asas-ui-ux" class="block aspect-[16/10] bg-gray-100 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Reka Bentuk UI" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                    </a>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-xs font-medium text-brand-600">Design</span>
+                            <span class="text-xs text-gray-300">•</span>
+                            <span class="text-xs text-gray-400">28 Feb 2026</span>
+                        </div>
+                        <a href="/blog/asas-ui-ux" class="block group mb-2">
+                            <h4 class="text-lg font-bold text-gray-900 group-hover:text-brand-600 transition-colors line-clamp-2">Asas Reka Bentuk UI/UX Untuk Pembangun Web</h4>
+                        </a>
+                        <a href="/blog/asas-ui-ux" class="inline-flex items-center text-sm font-medium text-gray-900 hover:text-brand-600 transition-colors mt-auto pt-4">
+                            Baca artikel <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Butang untuk kembali ke semua artikel -->
+            <div class="text-center md:text-left mt-2">
+                <a href="/blog" class="inline-flex items-center justify-center px-6 py-3 border border-gray-300 shadow-sm text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+                    Lihat Semua Artikel
+                </a>
+            </div>
+        </section>
+
+        <!-- BAHAGIAN FOOTER (Kekal konsisten) -->
+        <footer class="mt-24 pt-10 border-t border-gray-200 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <p class="text-sm text-gray-500">© 2026 RuzPrompt. Hak Cipta Terpelihara.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="/" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Profil</a>
+                <a href="/blog" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Blog</a>
+                <a href="/request" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Request Sistem</a>
+                <span class="text-gray-300">|</span>
+                <a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Twitter</a>
+                <a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Instagram</a>
+                <a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Email</a>
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+</html>
