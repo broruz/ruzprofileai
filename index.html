@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil & Produk Digital</title>
+    <!-- Menggunakan font Inter untuk gaya yang profesional dan moden -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS untuk styling pantas dan kemas -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            900: '#14532d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Tetapan asas untuk scroll yang lancar dan kemas */
+        html { scroll-behavior: smooth; }
+        body { background-color: #FAFAFA; color: #1F2937; }
+        
+        /* Bayang-bayang lembut untuk kad produk */
+        .product-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-100 selection:text-brand-900">
+
+    <!-- Kontena Utama (Dihadkan lebarnya supaya nampak fokus dan eksklusif) -->
+    <main class="max-w-3xl mx-auto px-6 py-16 md:py-24">
+
+        <!-- BAHAGIAN 1: PROFIL & PENGENALAN (Hero Section) -->
+        <header class="flex flex-col md:flex-row items-center md:items-start gap-8 mb-20">
+            <!-- Gambar Profil -->
+            <div class="flex-shrink-0">
+                <div class="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white shadow-sm">
+                    <!-- Gantikan src dengan gambar sebenar anda -->
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Gambar Profil" class="w-full h-full object-cover">
+                </div>
+            </div>
+            
+            <!-- Teks Pengenalan -->
+            <div class="text-center md:text-left pt-2">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3 tracking-tight">Hai, saya RuzPrompt</h1>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                    Saya seorang pereka dan pencipta bebas. Saya membina templat, panduan ringkas, dan alatan digital untuk membantu usahawan dan freelancer bekerja dengan lebih cekap, tanpa pening kepala.
+                </p>
+                <div class="flex flex-wrap justify-center md:justify-start gap-3">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-700">✍️ Penulis</span>
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-700">🎨 Pereka Digital</span>
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-brand-50 text-brand-600">💡 Penyelesai Masalah</span>
+                </div>
+
+                <!-- Pautan Navigasi Tambahan -->
+                <div class="flex flex-wrap justify-center md:justify-start gap-4 mt-8">
+                    <a href="/blog" class="inline-flex items-center px-5 py-2.5 bg-white border border-gray-200 hover:border-gray-300 text-gray-900 text-sm font-medium rounded-lg transition-all shadow-sm">
+                        📄 Baca Blog
+                    </a>
+                    <a href="/request" class="inline-flex items-center px-5 py-2.5 bg-gray-900 hover:bg-gray-800 text-white text-sm font-medium rounded-lg transition-all shadow-sm">
+                        💻 Request Sistem
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Garis Pemisah Halus -->
+        <hr class="border-gray-200 mb-16">
+
+        <!-- BAHAGIAN 2: PRODUK DIGITAL (Senarai Jualan) -->
+        <section>
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">Produk Digital Saya</h2>
+                <p class="text-gray-600">Alatan yang direka khusus untuk menjimatkan masa anda. Terus muat turun selepas pembelian.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                
+                <!-- Produk 1 -->
+                <article class="product-card bg-white rounded-2xl p-5 border border-gray-100 flex flex-col h-full">
+                    <div class="aspect-video w-full bg-gray-100 rounded-xl mb-4 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sistem Produktiviti Notion" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-1">Sistem Produktiviti Notion</h3>
+                        <p class="text-sm text-gray-500 mb-4 line-clamp-2">Templat komprehensif untuk menguruskan tugas harian, projek klien, dan kewangan peribadi dalam satu tempat.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4 pt-4 border-t border-gray-50">
+                        <span class="text-lg font-bold text-gray-900">RM 45</span>
+                        <a href="#" class="px-4 py-2 bg-gray-900 hover:bg-gray-800 text-white text-sm font-medium rounded-lg transition-colors">
+                            Dapatkan
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Produk 2 -->
+                <article class="product-card bg-white rounded-2xl p-5 border border-gray-100 flex flex-col h-full">
+                    <div class="aspect-video w-full bg-gray-100 rounded-xl mb-4 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="E-Buku Strategi Kandungan" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-1">E-Buku: Asas Pemasaran IG</h3>
+                        <p class="text-sm text-gray-500 mb-4 line-clamp-2">Panduan 50 muka surat langkah demi langkah bagaimana membina audiens dan menjual produk di Instagram.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4 pt-4 border-t border-gray-50">
+                        <span class="text-lg font-bold text-gray-900">RM 30</span>
+                        <a href="#" class="px-4 py-2 bg-gray-900 hover:bg-gray-800 text-white text-sm font-medium rounded-lg transition-colors">
+                            Dapatkan
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Produk 3 -->
+                <article class="product-card bg-white rounded-2xl p-5 border border-gray-100 flex flex-col h-full">
+                    <div class="aspect-video w-full bg-gray-100 rounded-xl mb-4 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Templat Canva" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-1">Pek Templat Canva Premium</h3>
+                        <p class="text-sm text-gray-500 mb-4 line-clamp-2">30+ templat post media sosial yang direka secara profesional. Mudah diedit dan disesuaikan dengan jenama anda.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4 pt-4 border-t border-gray-50">
+                        <span class="text-lg font-bold text-gray-900">RM 25</span>
+                        <a href="#" class="px-4 py-2 bg-gray-900 hover:bg-gray-800 text-white text-sm font-medium rounded-lg transition-colors">
+                            Dapatkan
+                        </a>
+                    </div>
+                </article>
+
+                 <!-- Produk 4 (Boleh dibuang jika produk sikit) -->
+                 <article class="product-card bg-white rounded-2xl p-5 border border-gray-100 flex flex-col h-full">
+                    <div class="aspect-video w-full bg-brand-50 rounded-xl mb-4 flex items-center justify-center border border-brand-100">
+                        <span class="text-brand-600 font-medium">Akan Datang</span>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-1">Kelas Mini: Asas Copywriting</h3>
+                        <p class="text-sm text-gray-500 mb-4 line-clamp-2">Rakaman video ringkas mengajar teknik asas menulis ayat jualan yang memukau pelanggan.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-4 pt-4 border-t border-gray-50">
+                        <span class="text-sm font-medium text-gray-400">Dalam pembikinan</span>
+                        <button disabled class="px-4 py-2 bg-gray-100 text-gray-400 text-sm font-medium rounded-lg cursor-not-allowed">
+                            Menyusul
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- BAHAGIAN 3: CARA HUBUNGI / FOOTER -->
+        <footer class="mt-24 pt-10 border-t border-gray-200 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <p class="text-sm text-gray-500">© 2026 RuzPrompt. Hak Cipta Terpelihara.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="/" class="text-sm text-gray-900 font-medium">Profil</a>
+                <a href="/blog" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Blog</a>
+                <a href="/request" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Request Sistem</a>
+                <span class="text-gray-300">|</span>
+                <!-- Pautan Media Sosial yang natural -->
+                <a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Twitter</a>
+                <a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Instagram</a>
+                <a href="#" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Email</a>
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+</html>
